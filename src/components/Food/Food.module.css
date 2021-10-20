@@ -1,0 +1,38 @@
+.food-item{
+    border: 1px solid black;
+    border-radius: 25px;
+    margin:20px auto;
+    width: 70%;
+    background-color: rgba(211, 169, 193, 0.575);
+    color: rgb(22, 21, 21);
+}
+.food-item:nth-child(even){
+    animation-name: leftin;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.food-item:nth-child(odd){
+    animation-name: rightin;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes leftin {
+    0%{
+        transform: translateX(-130px);
+    }
+}
+@keyframes rightin {
+    0%{
+        transform: translateX(130px);
+    }
+}
+
+.inps{
+    padding: 10px;
+}
+
+.inps input{
+    width: 30px;
+    font-size: 1.2rem;
+}
