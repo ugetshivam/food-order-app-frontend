@@ -9,7 +9,7 @@ const AllFood = () => {
         async function getFoods(){
             try {
                 const res = await axios.get('http://localhost:8000/allfoods');
-                console.log(res);
+                // console.log(res);
                 setFoods(res.data);
             }
             catch (err){
