@@ -1,4 +1,3 @@
-import { Button } from '@mui/material'
 import React, { useContext, useRef } from 'react'
 import styles from './Food.module.css'
 import { CartContext } from '../../contexts/CartContext'
@@ -33,7 +32,7 @@ const Food = (props) => {
                         defaultValue={1}
                         ref={inputQtyRef}
                     />
-                    <Button variant="contained" color="success" onClick={addToCart}>ADD</Button>
+                    <button onClick={addToCart}>ADD</button>
                 </div>
             </li>
     )

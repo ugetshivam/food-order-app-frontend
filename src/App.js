@@ -9,7 +9,7 @@ function App() {
     <Layout>
       <Switch>
       {/* <Route path='/'>
-        <Redirect to="/allfoods"/>
+        
       </Route> */}
       <Route path="/allfoods">
         <AllFood/>

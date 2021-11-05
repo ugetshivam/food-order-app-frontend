@@ -16,7 +16,16 @@
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
-
+.food-item button{
+    width: 65px;
+    padding: 9px;
+    margin-left: 6px;
+    border-radius: 4px;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(79, 143, 79, 0.897);
+    cursor: pointer;
+}
 @keyframes leftin {
     0%{
         transform: translateX(-130px);
@@ -33,6 +42,6 @@
 }
 
 .inps input{
-    width: 30px;
+    width: 5vw;
     font-size: 1.2rem;
 }
