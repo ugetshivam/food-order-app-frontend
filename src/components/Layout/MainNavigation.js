@@ -23,8 +23,8 @@ const MainNavigation = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Tomato
           </Typography>
-          <Button color="inherit"><NavLink exact to="/">Login</NavLink></Button>
-          <Button color="inherit"><NavLink exact to="/">Sign Up</NavLink></Button>
+          <Button color="inherit"><NavLink exact to="/login">Login</NavLink></Button>
+          <Button color="inherit"><NavLink exact to="/register">Sign Up</NavLink></Button>
         </Toolbar>
       </AppBar>
     </Box>
