@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { CartContextProvider } from './contexts/CartContext';
-import { LoginContextProvider } from './contexts/LoginContext';
-import {BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
+import { CartContextProvider } from './store/cart-context';
+
 ReactDOM.render(
-  <LoginContextProvider>
   <CartContextProvider>
-  <Router>
-    <App />
-  </Router>
+    <Router>
+      <App />
+    </Router>
   </CartContextProvider>
-  </LoginContextProvider>,
+  ,
   document.getElementById('root')
 );
+

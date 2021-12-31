@@ -1,43 +1,67 @@
 .cart{
+    width: 60%;
+    background-color: white;
     margin: 100px auto;
-    width: 40%;
-    background-color: rgba(157, 212, 212, 0.753);
+    list-style: none;
     padding: 16px;
-    border-radius: 0.8rem;
+    border-radius: 15px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.26);
+    
 }
 
 .cart li{
-    list-style: none;
-    width: 70%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bolder;
+    margin-bottom:15px ;
+    border-bottom: 0.05px solid gray;
 }
 
-.bill{
-    margin: 20px auto;
-    width: 40%;
-    background-color: rgba(157, 212, 212, 0.753);
-    padding: 16px;
-    border-radius: 0.8rem;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bolder;
+.item-name{
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.bill button{
-    width: 100px;
-    padding: 4px;
-    margin-left: 10px;
-    border-radius: 4px;
-    font-weight: bolder;
-    box-shadow: 0 9px #999;
+.item-price{
+    color:rgb(131, 46, 46);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.item-desc{
+    margin-bottom: 5px;
 }
 
-.bill button:hover{
+.item-qty{
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.cart li:first-child{
+    border-bottom:none ;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(129, 39, 39);
+}
+
+.cart li:last-child{
+    border-bottom:none ;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(129, 39, 39);
+}
+
+.cart li button{
+    font-size: 1.3rem;
+    padding: 0.1rem 1.3rem;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    border:none;
+    border:1px solid #ccc;
+    border-radius: 5px;
     cursor: pointer;
-    background-color: lightgreen;
 }
 
-.bill button:active{
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+.place-order-btn button{
+    float: right;
+    color:white;
+    background: none;
+    background-color:rgb(129, 39, 39);
 }

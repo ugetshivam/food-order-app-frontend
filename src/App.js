@@ -1,30 +1,27 @@
-import React from 'react';
+import React from 'react'
 import './App.css';
-import {Route, Switch, Redirect} from 'react-router-dom'
-import AllFood from './pages/AllFood';
-import Layout from './components/Layout/Layout';
+import { Route, Switch,Redirect } from 'react-router-dom';
+
+import AllFoods from './pages/AllFoods';
 import MyCart from './pages/MyCart';
-import Login from './pages/Login';
-import Register from './pages/Register';
-function App() {
+import Layout from './components/Layout/Layout';
+
+const App = () => {
   return (
     <Layout>
       <Switch>
-      <Route path='/login'>
-      <Login/>
-      </Route>
-      <Route path='/register'>
-        <Register/>
-      </Route>
-      <Route path="/allfoods">
-        <AllFood/>
-      </Route>
-      <Route path="/mycart">
-        <MyCart/>
-      </Route>
+        <Route path="/" exact>
+          <Redirect to="/allfoods" />
+        </Route>
+       <Route path="/allfoods">
+         <AllFoods/>
+        </Route>
+        <Route path="/my-cart">
+          <MyCart/>
+        </Route>
       </Switch>
     </Layout>
-  );
+     )
 }
 
-export default App;
+export default App

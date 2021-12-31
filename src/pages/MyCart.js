@@ -1,56 +1,45 @@
-import React, { useContext } from 'react'
-import styles from './MyCart.module.css'
-import { CartContext } from '../contexts/CartContext'
+import React,{useContext} from 'react'
+import CartContext from '../store/cart-context'
+import styles from './MyCart.module.css';
+
+
 const MyCart = () => {
+
     const cartCtx = useContext(CartContext);
-    const cart = cartCtx.cart;
+    const cart = cartCtx.cart
 
+    let totalCartPrice = 0;
 
-
-
-    const payHandler = ()=>{
-        // PAYMENT API
+    if (cart.length === 1) {
+        totalCartPrice = cart[0].price * cart[0].qty;
+    }
+    else if (cart.length>1) {
+        totalCartPrice = cart.reduce((prev, curr) => prev.price* parseInt(prev.qty) + curr.price* parseInt(curr.qty) );
     }
 
-
-
-    if(cart.length === 0){
-        return(
-            <h1 style={{margin: "100px auto",textAlign: 'center'}}>It looks like your cart is empty right now</h1>
-        );
+    const placeOrderHandler = () => {
+        console.log('clicked');
+        cartCtx.placeOrder();
     }
+    
 
-    let totalBill = 0;
-    if(cart.length === 1){
-        totalBill = cart[0].price * cart[0].qty;
-    }
-    else if(cart.length > 1){
-        totalBill = cart.reduce((prev, curr) => prev.price* parseInt(prev.qty) + curr.price* parseInt(curr.qty) );
-    }
     return (
-        <div>
-        <div className={styles['cart']}>
-            <h1>My Cart</h1>
-            <ul>
-                {
-                    cart.map((item, idx)=>{
-                        return <li key={idx}>
-                            <p>Item Name: {item.name}</p>
-                            <p>Description: {item.desc}</p>
-                            <p>Price: {item.price}</p>
-                            <p>Quantity: {item.qty}</p>
-                            <hr/>
-                        </li>
-                    })
-                }
-            </ul>
-        </div>
-        <div className={styles['bill']}>
-        <h1>Amount to pay</h1>
-        <span>&#8377;{totalBill}</span>
-        <button onClick={payHandler}>Pay</button>
-        </div>
-        </div>
+        <ul className={styles.cart}>
+            <li>My Cart</li>
+            {
+                cart.map((item,idx) => {
+
+                   return <li key={idx}>
+                        <p className={styles['item-name']}>{ item.name} <span className={styles['item-qty']}>x { item.qty}</span></p>
+                        <p className={styles['item-desc']}>{ item.desc}</p>
+                        <p className={styles['item-price']}>$ {item.price}</p>
+                       <button onClick={()=>cartCtx.decrementItem(item.id) }>-</button>
+                        <button onClick={()=>cartCtx.incrementItem(item.id)}>+</button>
+                    </li>
+                })
+            }
+            <li>Total: { totalCartPrice} <span className={styles['place-order-btn']}><button onClick={placeOrderHandler}>Place Order</button></span> </li>
+        </ul>
     )
 }
 
