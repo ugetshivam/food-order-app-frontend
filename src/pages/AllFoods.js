@@ -14,7 +14,7 @@ const AllFoods = () => {
         async function getFoods() {
             
             try {
-                const res = await axios.get('https://mern-food-app-server.herokuapp.com/allfoods');
+                const res = await axios.get('https://food-app-server-mern.herokuapp.com/allfoods');
                 // console.log(res);
                 setFoods(res.data);
             }
