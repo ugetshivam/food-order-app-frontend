@@ -43,7 +43,7 @@ export const CartContextProvider = (props) => {
 
     const decrementQtyHandler = (itemId) => {
         setCart((prevState)=>{
-            return prevState.map((cartItem) => cartItem.id === itemId ? { ...cartItem, qty: parseInt(cartItem.qty) - 1 } : cartItem);
+            return prevState.map((cartItem) => (cartItem.id === itemId && cartItem.qty > 0) ? { ...cartItem, qty: parseInt(cartItem.qty) - 1 } : cartItem);
         })
     }
 

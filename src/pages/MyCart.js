@@ -14,7 +14,10 @@ const MyCart = () => {
         totalCartPrice = cart[0].price * cart[0].qty;
     }
     else if (cart.length>1) {
-        totalCartPrice = cart.reduce((prev, curr) => prev.price* parseInt(prev.qty) + curr.price* parseInt(curr.qty) );
+        totalCartPrice = 0;
+        for(var i = 0; i < cart.length; i+=1){
+            totalCartPrice +=  cart[i].price*cart[i].qty;
+        }
     }
 
     const placeOrderHandler = () => {
