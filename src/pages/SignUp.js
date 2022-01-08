@@ -16,7 +16,7 @@ const SignUp = () => {
         };
         // local url = http://localhost:8000/register
         // Heroku url = https://food-app-server-mern.herokuapp.com/register
-        await axios.post('http://localhost:8000/register', userObject)
+        await axios.post('https://food-app-server-mern.herokuapp.com/register', userObject)
         .then((res)=>{
             console.log(res.data);
             setUserName("");

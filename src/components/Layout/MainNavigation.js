@@ -9,7 +9,7 @@ const MainNavigation = (props) => {
     const handleClick = async()=>{
             // local url = http://localhost:8000/register
         // Heroku url = https://food-app-server-mern.herokuapp.com/register
-        await axios.get("http://localhost:8000/logout", {withCredentials: true})
+        await axios.get("https://food-app-server-mern.herokuapp.com/logout", {withCredentials: true})
         .then((res)=>{
             console.log(res.data);
             props.setExist(false);

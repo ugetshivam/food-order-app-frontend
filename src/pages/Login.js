@@ -16,7 +16,7 @@ const Login = (props) => {
             username: username,
             password: password
         };
-        await axios.post('http://localhost:8000/login', userObject, {withCredentials: true})
+        await axios.post('https://food-app-server-mern.herokuapp.com/login', userObject, {withCredentials: true})
         .then((res)=>{
             console.log(res.data);
             setUserName("");
