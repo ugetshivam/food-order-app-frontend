@@ -48,7 +48,9 @@ export const CartContextProvider = (props) => {
     }
 
     const placeOrderHandler = async() => {
-        await axios.post('https://food-app-server-mern.herokuapp.com/placeorder', { cart })
+            // local url = http://localhost:8000/register
+        // Heroku url = https://food-app-server-mern.herokuapp.com/register
+        await axios.post('http://localhost:8000/placeorder', { cart })
         setCart(() => {
             return [];
         });

@@ -20,7 +20,7 @@
 }
 
 .item-price{
-    color:rgb(131, 46, 46);
+    color:rgb(45, 124, 160);
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -37,14 +37,14 @@
     border-bottom:none ;
     font-size: 1.5rem;
     font-weight: bold;
-    color: rgb(129, 39, 39);
+    color: rgb(48, 118, 150);
 }
 
 .cart li:last-child{
     border-bottom:none ;
     font-size: 1.5rem;
     font-weight: bold;
-    color: rgb(129, 39, 39);
+    color: rgb(43, 113, 153);
 }
 
 .cart li button{
@@ -63,5 +63,5 @@
     float: right;
     color:white;
     background: none;
-    background-color:rgb(129, 39, 39);
+    background-color:rgb(35, 130, 168);
 }

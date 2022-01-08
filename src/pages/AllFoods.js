@@ -12,9 +12,10 @@ const AllFoods = () => {
     useEffect(() => {
         
         async function getFoods() {
-            
+            // local url = http://localhost:8000/register
+        // Heroku url = https://food-app-server-mern.herokuapp.com/register
             try {
-                const res = await axios.get('https://food-app-server-mern.herokuapp.com/allfoods');
+                const res = await axios.get('http://localhost:8000/allfoods');
                 // console.log(res);
                 setFoods(res.data);
             }
