@@ -7,8 +7,9 @@ const CartContext = createContext({
     addItemHandler:(item)=>{},
     incrementItem: (itemId) => { },
     decrementItem: (itemId) => { },
+    removeItem: (itemID) => { },
     placeOrder:()=>{}
-})
+});
 
 
 export const CartContextProvider = (props) => {
@@ -43,14 +44,20 @@ export const CartContextProvider = (props) => {
 
     const decrementQtyHandler = (itemId) => {
         setCart((prevState)=>{
-            return prevState.map((cartItem) => (cartItem.id === itemId && cartItem.qty > 0) ? { ...cartItem, qty: parseInt(cartItem.qty) - 1 } : cartItem);
+            return prevState.map((cartItem) => (cartItem.id === itemId && cartItem.qty > 1) ? { ...cartItem, qty: parseInt(cartItem.qty) - 1 } : cartItem);
+        })
+    }
+
+    const removeItemHandler = (itemId) =>{
+        setCart((prevState)=>{
+            return prevState.filter((cartItem)=> cartItem.id !== itemId);
         })
     }
 
     const placeOrderHandler = async() => {
             // local url = http://localhost:8000/register
         // Heroku url = https://food-app-server-mern.herokuapp.com/register
-        await axios.post('https://food-app-server-mern.herokuapp.com/placeorder', { cart })
+        await axios.post('http://localhost:8000/placeorder', { cart })
         setCart(() => {
             return [];
         });
@@ -62,6 +69,7 @@ export const CartContextProvider = (props) => {
         addItemHandler: addItemHandler,
         incrementItem: incrementQtyHandler,
         decrementItem: decrementQtyHandler,
+        removeItem: removeItemHandler,
         placeOrder:placeOrderHandler
     }
 

@@ -38,6 +38,7 @@ const MyCart = () => {
                         <p className={styles['item-price']}>$ {item.price}</p>
                        <button onClick={()=>cartCtx.decrementItem(item.id) }>-</button>
                         <button onClick={()=>cartCtx.incrementItem(item.id)}>+</button>
+                        <button onClick={()=>cartCtx.removeItem(item.id)}>Remove</button>
                     </li>
                 })
             }

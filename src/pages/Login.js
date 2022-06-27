@@ -16,7 +16,7 @@ const Login = (props) => {
             username: username,
             password: password
         };
-        await axios.post('https://food-app-server-mern.herokuapp.com/login', userObject, {withCredentials: true})
+        await axios.post('http://localhost:8000/login', userObject, {withCredentials: true})
         .then((res)=>{
             console.log(res.data);
             setUserName("");
@@ -44,22 +44,22 @@ const Login = (props) => {
     }
     return (
         <div className={styles.signup}>
-            <h1>Login</h1>
+            <h1 className={styles.h}>Login</h1>
             {message?
             <FlashMessage duration={5000} persistOnHover={true}>
                 <strong>Username or Password is incorrect</strong>
             </FlashMessage>:""
             }
-            <form onSubmit={submitHandler}>
-                <label htmlFor="username">Username</label>
-                <input type="text" id="username" onChange={userHandler} value={username}/>
+            <form onSubmit={submitHandler} className={styles.form}>
+                <label htmlFor="username" >Username</label>
+                <input className={styles.inp} type="text" id="username" onChange={userHandler} value={username}/>
                 <br/>
                 <br/>
                 <label htmlFor="password">Password</label>
-                <input type="password" id="password" onChange={passHandler}  value={password}/>
+                <input className={styles.inp} type="password" id="password" onChange={passHandler}  value={password}/>
                 <br/>
                 <br/>
-                <input type="submit"/>
+                <input className={styles.btn} type="submit"/>
             </form>
         </div>
     )

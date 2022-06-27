@@ -12,9 +12,12 @@ const App = () => {
   const[exist, setExist] = useState(false);
   useEffect(()=>{
     async function getUser(){
-      await axios.get('https://food-app-server-mern.herokuapp.com/getuser', {withCredentials: true})
+      await axios.get('http://localhost:8000/getuser', {withCredentials: true})
       .then((res)=>{
         console.log(res.data);
+        if(exist === false){
+        setExist(true);
+        }
       })
       .catch((err)=>{
         console.log(err);
@@ -22,6 +25,7 @@ const App = () => {
     }
     getUser();
   }, [exist]);
+  console.log(exist);
   return (
     <Layout exist={exist} setExist={setExist}>
       <Switch>

@@ -16,7 +16,7 @@ const SignUp = () => {
         };
         // local url = http://localhost:8000/register
         // Heroku url = https://food-app-server-mern.herokuapp.com/register
-        await axios.post('https://food-app-server-mern.herokuapp.com/register', userObject)
+        await axios.post('http://localhost:8000/register', userObject)
         .then((res)=>{
             console.log(res.data);
             setUserName("");
@@ -44,21 +44,21 @@ const SignUp = () => {
     }
     return (
         <div className={styles.signup}>
-            <h1>Sign Up</h1>
-            <form onSubmit={submitHandler}>
+            <h1 className={styles.h}>Sign Up</h1>
+            <form className={styles.form} onSubmit={submitHandler}>
                 <label htmlFor="username">Username</label>
-                <input type="text" id="username" onChange={userHandler} value={username}/>
+                <input className={styles.inp} type="text" id="username" onChange={userHandler} value={username}/>
                 <br/>
                 <br/>
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" onChange={emailHandler}  value={email}/>
+                <input className={styles.inp} type="email" id="email" onChange={emailHandler}  value={email}/>
                 <br/>
                 <br/>
                 <label htmlFor="password">Password</label>
-                <input type="password" id="password" onChange={passHandler}  value={password}/>
+                <input className={styles.inp} type="password" id="password" onChange={passHandler}  value={password}/>
                 <br/>
                 <br/>
-                <input type="submit"/>
+                <input className={styles.btn} type="submit"/>
             </form>
         </div>
     )
